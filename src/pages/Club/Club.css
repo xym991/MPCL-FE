@@ -1,0 +1,18 @@
+._club-page {
+  margin-top: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+._club-page > div {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 2px 4px 16px #1112;
+  padding: 2rem;
+  width: 100%;
+}
+._club-page .header h1 {
+  font-size: 48px;
+  font-family: var(--font2);
+  font-weight: 600;
+}

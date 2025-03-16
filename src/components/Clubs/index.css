@@ -1,0 +1,62 @@
+._clubs {
+  width: 100%;
+}
+
+._clubs .clubs-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
+  gap: 2rem;
+}
+._club {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 2px 4px 16px #1112;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: white;
+}
+._club > img {
+  height: 250px;
+  width: 220px;
+  object-fit: cover;
+  align-self: center;
+}
+
+.club-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 0.5rem;
+  padding: 2rem 1rem;
+}
+.club-main * {
+  margin: 0;
+}
+.club-main h2.name {
+  font-family: var(--font2);
+  font-weight: 600;
+  /* color: var(--primary); */
+  font-size: 26px;
+  letter-spacing: -0.5px;
+}
+.club-main p {
+  display: flex;
+  align-items: start;
+  gap: 0.5rem;
+  color: #333;
+  font-size: 18px;
+}
+
+.club-main p svg {
+  color: var(--primary);
+}
+
+.club-main p span {
+  color: var(--primary);
+  font-weight: 600;
+  font-family: var(--font2);
+}

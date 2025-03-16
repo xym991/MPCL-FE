@@ -1,0 +1,108 @@
+._registration {
+  padding: 20px;
+  margin-top: 100px;
+}
+
+._registration .tabs {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 2px 4px 16px #1112;
+}
+
+._registration .tab {
+  padding: 10px 20px;
+  font-family: var(--font2);
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+  transition: all 0.3s ease-out;
+}
+
+._registration .tab:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+._registration .tab.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+._registration .tab-content {
+  margin-top: 20px;
+  text-align: center;
+}
+._player-registration {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 2px 4px 16px #1112;
+  text-align: left;
+}
+._registration .heading {
+  font-size: 36px;
+  margin-bottom: 2rem;
+}
+._registration input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 16px;
+  box-shadow: 1px 2px 10px #1112;
+}
+
+._registration input:active {
+  outline-color: var(--primary) !important;
+}
+._registration .space-y-2 {
+  margin-bottom: 2rem !important;
+  flex-wrap: wrap;
+}
+._registration label {
+  font-size: 16px !important;
+}
+
+._registration .space-x-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+._registration input[type="radio"],
+._registration input[type="checkbox"] {
+  height: unset;
+  margin: 0 !important;
+}
+._registration input[type="file"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+}
+._registration .grid {
+  flex-wrap: wrap;
+}
+
+._registration a {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+._player-registration .mt-8 {
+  margin: 1rem 0 2rem !important;
+}
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: unset !important;
+}
+._registration label {
+  margin-bottom: 0.25rem;
+  display: inline-block;
+}
+.flex {
+  display: flex !important;
+}
