@@ -5,6 +5,8 @@ import paths from "../../../utils/paths";
 import Button from "../../../components/Shared/Button";
 import TeamSelect from "../Teams/TeamSelect";
 import ClubSelect from "../Clubs/ClubSelect";
+import { useContext } from "react";
+import { PersonContext } from "../../../context/PersonContext";
 
 const AddPerson = ({ selectedPersonId, onFormSubmit, setSelectedPersonId }) => {
   const {
@@ -18,15 +20,16 @@ const AddPerson = ({ selectedPersonId, onFormSubmit, setSelectedPersonId }) => {
   const [image, setImage] = useState(null);
   const [teamId, setTeamId] = useState(null);
   const [clubId, setClubId] = useState(null);
-
+  const { people, setPeple } = useContext(PersonContext);
   useEffect(() => {
     const fetchPerson = async (id) => {
       try {
-        const response = await axios.get(`${paths.get_people}/${id}`);
-        const person = response.data;
-        Object.keys(person).forEach((key) => {
-          setValue(key, person[key]);
-        });
+        // const response = await axios.get(`${paths.get_people}/${id}`);
+        const person = people.find((p) => p.id == id);
+        person &&
+          Object.keys(person)?.forEach((key) => {
+            setValue(key, person[key]);
+          });
         setImage(person.image || null);
         setTeamId(person.team);
         setClubId(person.club);
@@ -138,9 +141,7 @@ const AddPerson = ({ selectedPersonId, onFormSubmit, setSelectedPersonId }) => {
             <select className="border p-2 w-full" {...register("role")}>
               <option value="">Select Role</option>
               <option value="club_registrar">Club Registrar</option>
-              <optio value="club_official">Club Official</optio>
-              {/* <option value="club_admin">Club Admin</option> */}
-              {/* <option value="club_chairman">Club Chairman</option> */}
+              <option value="club_official">Club Official</option>
               <option value="league_registrar">League Registrar</option>
               <option value="league_official">League Official</option>
               <option value="admin">Admin</option>

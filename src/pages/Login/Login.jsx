@@ -6,12 +6,13 @@ import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import LockIcon from "@mui/icons-material/Lock";
 import { UserContext } from "../../context/UserContext";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser } = useContext(UserContext);
-
+  const navigate = useNavigate();
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -20,13 +21,13 @@ const Login = () => {
         { email, password },
         { withCredentials: true }
       );
-      console.log("Login response:", response.data);
 
       // Fetch user details after login
       const userResponse = await axios.get(paths.get_current_user, {
         withCredentials: true,
       });
       setUser(userResponse.data);
+      navigate("/");
       console.log("User details:", userResponse.data);
     } catch (error) {
       console.error("Error logging in:", error);
