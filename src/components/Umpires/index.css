@@ -9,7 +9,7 @@
 }
 ._person-card {
   display: flex;
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 2px 4px 16px #1112;
   overflow: hidden;
   background-color: white;

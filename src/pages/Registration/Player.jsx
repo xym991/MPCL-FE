@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import SignatureCanvas from "react-signature-canvas";
 import Select from "react-select";
@@ -8,11 +8,6 @@ import axios from "axios";
 import paths from "../../utils/paths";
 import CloseIcon from "@mui/icons-material/Close";
 
-const clubs = [
-  { value: "1", label: "Club 1578" },
-  { value: "2", label: "Club 1576" },
-];
-
 export default function PlayerRegistration({ tab, setTab }) {
   const {
     register,
@@ -20,11 +15,28 @@ export default function PlayerRegistration({ tab, setTab }) {
     setValue,
     control,
     formState: { errors },
+    reset,
   } = useForm();
 
   const [idPhoto, setIdPhoto] = useState(null);
   const sigCanvas = useRef();
   const [transfer, setTransfer] = useState(false);
+  const [clubs, setClubs] = useState([]);
+
+  useEffect(() => {
+    const fetchClubs = async () => {
+      try {
+        const response = await axios.get(paths.get_clubs);
+        setClubs(
+          response.data.map((club) => ({ value: club.id, label: club.name }))
+        );
+      } catch (error) {
+        console.error("Error fetching clubs:", error);
+      }
+    };
+
+    fetchClubs();
+  }, []);
 
   const handleIdPhotoChange = (event) => {
     const file = event.target.files[0];
@@ -49,6 +61,7 @@ export default function PlayerRegistration({ tab, setTab }) {
         club: data.club.value,
       });
       console.log("Form Submitted:", response.data);
+      reset(); // Clear the form after successful submission
     } catch (error) {
       console.error("Error submitting form:", error);
     }

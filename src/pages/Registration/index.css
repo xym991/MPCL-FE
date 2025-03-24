@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 2px 4px 16px #1112;
 }
 
@@ -40,7 +40,7 @@
 }
 ._player-registration {
   background-color: white;
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 2px 4px 16px #1112;
   text-align: left;
 }
@@ -105,4 +105,14 @@
 }
 .flex {
   display: flex !important;
+}
+
+._management .filters a {
+  padding: 2px 12px;
+}
+._management .filters a:hover,
+._management .filters a.active {
+  background: var(--primary);
+  color: white;
+  border-radius: 4px;
 }

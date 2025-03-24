@@ -79,3 +79,6 @@ a {
 ._header.transparent .logo span {
   color: white;
 }
+._header a {
+  color: inherit !important;
+}

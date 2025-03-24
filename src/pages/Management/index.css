@@ -1,0 +1,173 @@
+._management-header {
+  font-family: var(--font2);
+  box-shadow: var(--shadow-primary);
+}
+
+._management-header .tab:hover,
+._management-header .tab.active {
+  background-color: var(--primary);
+  color: white;
+}
+._management .m-component {
+  background-color: white;
+  padding: 2rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  box-shadow: var(--shadow-primary);
+}
+._management .m-component h1 {
+  font-size: 32px;
+  font-weight: 600;
+  font-family: var(--font2);
+  margin-bottom: 1rem;
+  /* text-align: center; */
+  color: var(--primary);
+}
+._management input,
+.inp {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 16px;
+  box-shadow: 1px 2px 10px #1112;
+}
+
+._management input:active {
+  outline-color: var(--primary) !important;
+}
+._management input[type="radio"],
+._management input[type="checkbox"] {
+  height: unset;
+  margin: 0 !important;
+}
+._management input[type="file"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+}
+
+._management .m-component th {
+  font-weight: 600;
+  font-family: var(--font2);
+  font-size: 16px;
+}
+._management .m-component th,
+._management .m-component td {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+}
+._management table {
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-primary);
+  border: 1px solid #ccc;
+}
+._person-select {
+  /* transform: translate(-50%, -50%); */
+  box-shadow: 4px 4px 20px #1114;
+  z-index: 2;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+}
+._person-select ul {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+._person-select ul li,
+._person-select .selected {
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  font-weight: 500;
+  gap: 0.5rem;
+  display: flex;
+}
+._person-select ul li img {
+  box-shadow: 0px 0px 4px #1112;
+  height: 48px;
+  width: 48px;
+}
+
+._person-select ul li:hover {
+  background-color: #1112;
+}
+._person-select-input span.placeholder {
+  font-size: 18px;
+}
+._person-select span,
+._person-select-input span {
+  text-align: left;
+}
+._person-select-input {
+  flex: 1;
+  height: 60px !important;
+  max-height: 60px !important;
+}
+._person-select-input .selected {
+  border: 1px solid #ccc;
+}
+
+table ._person-select-input {
+  flex: unset;
+  width: 330px;
+}
+._management table button {
+  flex: 1;
+  height: 50px;
+  min-width: fit-content;
+  max-width: 250px;
+  display: flex;
+  align-items: center;
+}
+table button.reject {
+  background-color: indianred;
+}
+._management table button span {
+  gap: 0.5rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+._management .td-hidden td {
+  /* height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden;
+  display: block;
+  padding: 0 !important;
+  border: none; */
+}
+.club-fields input[type="checkbox"] {
+  margin-left: auto !important;
+  display: block;
+}
+.club-fields > div {
+  align-items: center;
+}
+._teams table ._person-select-input {
+  flex: 1;
+
+  width: 100% !important;
+}
+._management select {
+  box-shadow: var(--shadow-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  height: 50px;
+  border: 1px solid #ccc;
+}
+input:focus {
+  outline: 1px solid var(--primary) !important;
+}
+._person-select-input {
+  position: relative;
+}
+._management table img {
+  height: 48px;
+  width: 48px;
+}

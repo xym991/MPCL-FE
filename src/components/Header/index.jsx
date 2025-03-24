@@ -1,14 +1,25 @@
 import { Link, useLocation } from "react-router-dom";
 import Button from "../Shared/Button";
 import "./index.css";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 export default function Header() {
   const location = useLocation();
-  const arr = ["/", "/commitee", "/clubs", "/umpires", "/news", "/sponsor"];
+  const arr = [
+    "/",
+    "/commitee",
+    "/clubs",
+    "/umpires",
+    "/news",
+    "/sponsor",
+    "/history",
+  ];
   const headerClass = arr.includes(location.pathname)
     ? "_header transparent"
     : "_header";
 
+  const { user } = useContext(UserContext);
   return (
     <div className={headerClass}>
       <Link to="/">
@@ -37,11 +48,17 @@ export default function Header() {
           <Link to="/sponsor">Sponsor</Link>
         </li>{" "}
         <li>
-          <Link to="/login">Login</Link>
+          <Link to="/history">History</Link>
         </li>
-        <Link to={"/registration"}>
-          <Button>Join Now!</Button>
-        </Link>
+        {user?.role ? (
+          <Link to="/mpcl-management-panel">
+            <Button>MPCL-management</Button>
+          </Link>
+        ) : (
+          <Link to={"/registration"}>
+            <Button>Join Now!</Button>
+          </Link>
+        )}
       </ul>
     </div>
   );

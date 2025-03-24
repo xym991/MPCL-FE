@@ -1,22 +1,41 @@
-import React from "react";
-import "../Umpires/index.css";
-import person from "../../assets/images/Ajay-Carvalo.jpg";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import paths from "../../utils/paths";
 import PersonCard from "../Shared/PersonCard";
+import person from "../../assets/images/Ajay-Carvalo.jpg";
 
 const Commitee = () => {
-  const umpires = Array(18).fill({
-    name: "Ajay Carvalo",
-    image: person,
-    subtext: "League Secretary & Division 4",
-    phone: "+44 7595287068",
-    email: "ajay.carvalo@gmail.com",
-  });
+  const [commiteeMembers, setCommiteeMembers] = useState([]);
+
+  useEffect(() => {
+    const fetchCommiteeMembers = async () => {
+      try {
+        const response = await axios.get(paths.get_commitee_members);
+        setCommiteeMembers(response.data);
+      } catch (error) {
+        console.error("Error fetching commitee members:", error);
+      }
+    };
+
+    fetchCommiteeMembers();
+  }, []);
+
   return (
     <div className="_umpires">
       <div className="_umpires-grid">
-        {umpires.map((u) => (
-          <PersonCard person={u} />
-        ))}
+        {commiteeMembers.length > 0 &&
+          commiteeMembers?.map((member) => (
+            <PersonCard
+              key={member.id}
+              person={{
+                name: `${member.fname} ${member.lname}`,
+                image: member.image || person,
+                subtext: member.role,
+                phone: member.phone,
+                email: member.email,
+              }}
+            />
+          ))}
       </div>
     </div>
   );

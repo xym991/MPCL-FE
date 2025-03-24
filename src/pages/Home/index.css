@@ -13,18 +13,19 @@
   width: 100%;
   justify-content: center;
 }
-.__app .__home .section > .heading {
-  font-size: 48px;
-  text-align: center;
+.__app .__home .section > .heading,
+._heading {
+  font-size: 40px;
   font-family: var(--font2);
-  color: var(--primary);
+  /* color: var(--primary); */
   font-weight: 600;
   background-color: white;
-  padding: 0.5rem 2rem;
-  margin: 2rem;
-  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  margin: 2rem 0;
+  border-radius: 5px;
   box-shadow: 2px 4px 16px #1112;
-  width: 50%;
+  width: 100%;
+  text-align: left;
 }
 .__app ._patron .heading {
   font-size: 48px;
@@ -33,31 +34,39 @@
   color: var(--primary) !important;
   font-weight: 600;
 }
-.__home ._patron .patron-card {
+.__app ._patron .patron-card {
   display: flex;
   gap: 2rem;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 5px;
   overflow: hidden;
   width: 80%;
   margin: auto;
   box-shadow: 2px 4px 16px #1112;
   height: fit-content;
 }
-.__home ._patron .patron-card img {
-  height: 500px;
+.__app ._patron .patron-card img {
+  max-height: 500px;
   object-fit: cover;
 }
-.__home ._patron .patron-card p {
+.__app ._patron .patron-card p {
   padding: 2rem;
   margin: 0;
   /* font-size: 18px; */
   line-height: 1.4;
   color: #333;
 }
-.__home ._patron .heading {
+.__app ._patron .heading {
   margin: 0;
   font-size: 40px;
   text-align: left;
   margin-bottom: 20px;
+}
+._about .patron-card img {
+  min-width: 50%;
+  max-height: 400px !important;
+  object-fit: cover;
+}
+._about .patron-card p {
+  font-size: 18px;
 }

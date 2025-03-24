@@ -19,6 +19,7 @@ export default function PlayerRegistration() {
     setValue,
     control,
     formState: { errors },
+    reset,
   } = useForm({
     defaultValues: {
       ground_1_dressing_facilities: 0,
@@ -94,6 +95,7 @@ export default function PlayerRegistration() {
     try {
       const response = await axios.post(paths.club_registration, data);
       console.log("Form Submitted:", response.data);
+      reset(); // Clear the form after successful submission
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -138,7 +140,8 @@ export default function PlayerRegistration() {
               htmlFor="club_contact"
               className="block text-sm font-medium text-gray-700"
             >
-              Name of Main Club Contact <span className="text-red-500">*</span>
+              Name of Primary Club Contact{" "}
+              <span className="text-red-500">*</span>
             </label>
             <input
               {...register("primary_club_contact", {
@@ -262,7 +265,7 @@ export default function PlayerRegistration() {
               Phone number<span className="text-red-500">*</span>
             </label>
             <input
-              {...register(`seconday_phone_number`, {
+              {...register(`secondary_phone_number`, {
                 required: `phone is required`,
               })}
               className="block w-full border border-gray-300 rounded-md shadow-sm p-2"
@@ -271,7 +274,7 @@ export default function PlayerRegistration() {
             />
             {errors.seconday_phone_number && (
               <span className="text-red-500">
-                {errors[`seconday_phone_number`].message}
+                {errors[`secondary_phone_number`].message}
               </span>
             )}
           </div>

@@ -6,14 +6,14 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
-  gap: 2rem;
+  gap: 1.5rem;
 }
 ._club {
   display: flex;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
   box-sizing: border-box;
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 2px 4px 16px #1112;
   cursor: pointer;
   overflow: hidden;
@@ -21,7 +21,7 @@
 }
 ._club > img {
   height: 250px;
-  width: 220px;
+  width: 250px;
   object-fit: cover;
   align-self: center;
 }
